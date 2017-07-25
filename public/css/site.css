@@ -1,0 +1,38 @@
+.bb-post-container{
+    background: #fb0111;
+    min-height: 500px;
+    color: #fff;
+}
+
+.bb-post-container-inner{
+    min-height: 500px;
+    position: relative;
+    color: #fff;
+    font-size: 40px;
+}
+
+.bb-post-container-inner::after {
+  content: "";
+  background: url('../img/back-03.png');
+  background-size: 270px;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute; 
+}
+
+.bb-post-text-start{
+    position: relative;
+    background: transparent;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    z-index: 99;
+    color: #fff;
+    font-weight: bold;
+    padding: 20px;
+}
