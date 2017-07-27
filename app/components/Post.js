@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
+import { EditorState, convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+import { Editor } from 'react-draft-wysiwyg';
 
 class Post extends React.Component {
   constructor(){
@@ -8,17 +11,19 @@ class Post extends React.Component {
     this.state={
       value:'',
       color: "#fff",
-      fontSize: '30px'
+      fontSize: '30px',
+      editorState: EditorState.createEmpty(),
+
     }
   }
 
-  onChange(e){
-    e.preventDefault();
 
-    this.setState({
-      value:e.target.value,
-    })
-  }
+
+  onEditorStateChange(editorState){
+      this.setState({
+        editorState,
+      });
+    };
 
 
   render() {
@@ -27,19 +32,28 @@ class Post extends React.Component {
         fontSize: this.state.fontSize
       };
 
+      const { editorState } = this.state;
+      var convertVar = convertToRaw(editorState.getCurrentContent());
+      var convertValue = draftToHtml(convertVar);
 
     return (
       <div className="container-fluid">
         <Messages messages={this.props.messages}/>
-
+        
         <div className="row">
           <div className="col-sm-4">
             <div className="panel">
               <div className="panel-body">
                 <h3>Paste Your Post</h3>
-                <form>
-                  <textarea onChange = {this.onChange.bind(this)} className="form-control" rows="20"></textarea>
-                </form>
+                <Editor
+                  editorState={editorState}
+                  toolbarClassName="toolbarClassName"
+                  wrapperClassName="wrapperClassName"
+                  editorClassName="editorClassName"
+                  onEditorStateChange={this.onEditorStateChange.bind(this)}
+                />
+               
+                
                 
               </div>
             </div>
@@ -52,7 +66,7 @@ class Post extends React.Component {
                 <div className="bb-post-container">
                   <div className="bb-post-container-inner">
                     <div style={divStyle} className="bb-post-text-start"> 
-                      {this.state.value}
+                      <p dangerouslySetInnerHTML={{__html: convertValue}} />
                     </div>
                   </div>
                 </div>
