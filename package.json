@@ -1,7 +1,7 @@
 {
-  "name": "cold-lab",
+  "name": "Paste-Post",
   "version": "1.0.0",
-  "description": "My app description",
+  "description": "Create Your Facebook Post With Paste Post",
   "scripts": {
     "build": "webpack --display-error-details",
     "deploy": "npm test && git push heroku master",
