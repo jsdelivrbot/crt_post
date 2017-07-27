@@ -39,9 +39,9 @@ class Post extends React.Component {
     return (
       <div className="container-fluid">
         <Messages messages={this.props.messages}/>
-        
+
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-sm-5">
             <div className="panel">
               <div className="panel-body">
                 <h3>Paste Your Post</h3>
@@ -59,7 +59,7 @@ class Post extends React.Component {
             </div>
           </div>
 
-          <div className="col-sm-8">
+          <div className="col-sm-7">
             <div className="panel">
               <div className="panel-body">
                 <h3>Post View</h3>
