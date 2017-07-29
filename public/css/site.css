@@ -8,7 +8,6 @@
     min-height: 500px;
     position: relative;
     color: #fff;
-    font-size: 40px;
 }
 
 .bb-post-container-inner::after {
@@ -35,4 +34,43 @@
     color: #fff;
     font-weight: bold;
     padding: 20px;
+    padding-bottom: 60px;
+}
+
+.bb-post-text-start p{
+    padding-bottom: 10px;
+    margin: auto;
+}
+
+.bb-set-logo{
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    width: 205px;
+}
+
+.bb-set-logo{
+    text-align: center;
+}
+
+.bb-set-logo img{
+    width: 50px;
+    float: left;
+}
+
+.bb-set-logo p{
+    float: left;
+    margin-left: 5px;
+    font-size: 15px;
+    position: relative;
+
+}
+
+.bb-set-logo .logo-text{
+    float: left;
+    /*background: #fff;
+    color: red;*/
+    position: relative;
+    top: 7px;
+    padding: 5px;
 }

@@ -52,7 +52,8 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         screw_ie8: true,
-        warnings: false
+        warnings: false,
+        browser: true
       }
     })
   );

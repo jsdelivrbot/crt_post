@@ -11,7 +11,6 @@ class Post extends React.Component {
     this.state={
       value:'',
       color: "#fff",
-      fontSize: '30px',
       editorState: EditorState.createEmpty(),
 
     }
@@ -27,9 +26,9 @@ class Post extends React.Component {
 
 
   render() {
+    // document.getElementById('roots');
      var divStyle = {
-        color: this.state.color,
-        fontSize: this.state.fontSize
+        color: this.state.color
       };
 
       const { editorState } = this.state;
@@ -37,7 +36,7 @@ class Post extends React.Component {
       var convertValue = draftToHtml(convertVar);
 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" id="roots">
         <Messages messages={this.props.messages}/>
 
         <div className="row">
@@ -67,7 +66,18 @@ class Post extends React.Component {
                   <div className="bb-post-container-inner">
                     <div style={divStyle} className="bb-post-text-start"> 
                       <p dangerouslySetInnerHTML={{__html: convertValue}} />
+                      
                     </div>
+                    <div className="bb-set-logo">
+                        <div className="bb-set-logo-inner">
+                          <img src="/img/only-b-02.png" alt=""/>
+                          <div className="logo-text">
+                            <p>Big</p>
+                            <p>Boss</p>
+                            <p>Business</p>
+                          </div>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
